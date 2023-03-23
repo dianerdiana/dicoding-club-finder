@@ -1,4 +1,6 @@
-const main = function () {
+import DataSource from '../data/data-source'
+
+const main = () => {
   const searchElement = document.querySelector('#searchElement')
   const buttonSearchElement = document.querySelector('#searchButtonElement')
   const clubListElement = document.querySelector('#clubList')
@@ -39,3 +41,5 @@ const main = function () {
 
   buttonSearchElement.addEventListener('click', onButtonSearchClicked)
 }
+
+export default main
