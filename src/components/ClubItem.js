@@ -1,10 +1,11 @@
 class ClubItem extends HTMLElement {
-  connectedCallback() {
-    this.club = this.getAttribute('club')
+  set club(club) {
+    this._club = club
+    this.render()
   }
 
   render() {
-    const { name, fanArt, description } = this.club
+    const { name, fanArt, description } = this._club
 
     this.innerHTML = `
         <img class="fan-art-club" src=${fanArt} alt="Fan Art">

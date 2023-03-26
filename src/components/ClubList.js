@@ -1,10 +1,23 @@
+import './ClubItem.js'
+
 class ClubList extends HTMLElement {
-  connectedCallback() {
-    this.clubs = this.getAttribute('clubs')
+  set clubs(clubs) {
+    this._clubs = clubs
+    this.render()
+  }
+
+  renderError(message) {
+    this.innerHTML = ''
+    this.innerHTML += `<h2 class="placeholder">${message}</h2>`
   }
 
   render() {
-    const clubList = this.cre
+    this.innerHTML = ''
+    this._clubs.forEach((club) => {
+      const clubItemElement = document.createElement('club-item')
+      clubItemElement.club = club
+      this.appendChild(clubItemElement)
+    })
   }
 }
 

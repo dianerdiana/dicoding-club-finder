@@ -1,10 +1,4 @@
 class SearchBar extends HTMLElement {
-  connectedCallback() {
-    this.placeholder = this.getAttribute('placeholder') || null
-    this.btnName = this.getAttribute('btnName') || null
-    this.render()
-  }
-
   set clickEvent(event) {
     this._clickEvent = event
     this.render()
@@ -18,11 +12,11 @@ class SearchBar extends HTMLElement {
     this.innerHTML = `
       <div id="search-container" class="search-container">
         <input
-          placeholder="${this.placeholder}"
+          placeholder="Search football club"
           id="searchElement"
           type="search"
         />
-        <button id="searchButtonElement" type="submit">${this.btnName}</button>
+        <button id="searchButtonElement" type="submit">Search</button>
       </div>
     `
     this.querySelector('#searchButtonElement').addEventListener(
