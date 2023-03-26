@@ -8,20 +8,15 @@
   </head>
   <body>
     <header>
-      <div id="appBar" class="app-bar">
-        <h2>Club Finder</h2>
-      </div>
+      <app-bar content="Club Finder"></app-bar>
     </header>
     <main>
-      <div id="search-container" class="search-container">
-        <input
-          placeholder="Search football club"
-          id="searchElement"
-          type="search"
-        />
-        <button id="searchButtonElement" type="submit">Search</button>
-      </div>
+      <search-bar
+        placeholder="Search football club"
+        btnName="Search"
+      ></search-bar>
       <div id="clubList"></div>
+      <h1>Endar Susanto</h1>
     </main>
 
     <script src="app.js" type="module"></script>
