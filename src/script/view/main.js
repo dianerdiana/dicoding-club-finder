@@ -1,7 +1,6 @@
 import '../../components/ClubList.js';
 import '../../components/SearchBar.js';
-
-const BASE_URL = 'https://sports-api.dicoding.dev';
+import DataSource from '../data/data-source.js';
 
 const main = () => {
   const searchElement = document.querySelector('search-bar');
@@ -9,21 +8,8 @@ const main = () => {
 
   const onButtonSearchClicked = async () => {
     try {
-      const responseRaw = await fetch(
-        `${BASE_URL}/teams/search?t=${searchElement.value}`
-      );
-      const results = await responseRaw.json();
-      const teams = results.teams.map((team) => {
-        const t = {
-          id: team.idTeam,
-          name: team.strTeam,
-          fanArt: team.strTeamBadge,
-          description: team.strDescriptionEN
-        };
-
-        return t;
-      });
-      renderResult(teams);
+      const results = await DataSource.searchClub(searchElement.value);
+      renderResult(results);
     } catch (error) {
       fallbackResult(error);
     }
